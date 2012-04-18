@@ -83,9 +83,9 @@ class pol(dict):
     1j*x
     """
   out='pretty'
-  def __init__(self,val=None,order=None,eps=1E-18,loc={},m='eval'):
+  def __init__(self,val=None,order=10,eps=1E-18,loc={},m='eval'):
     self.vars=[]
-    self.order=10
+    self.order=order
     self.eps=eps
     if val!=None:
       if isinstance(val,self.__class__):
@@ -105,8 +105,10 @@ class pol(dict):
       else:
         self.vars=[]
         self[()]=val
-    if order is not None:
-      self.order=order
+
+  def fromdict(self, dic, varl):
+    self.update(dic)
+    self.vars=varl[:]
 
   def zero(self):
     """Extract zero order
