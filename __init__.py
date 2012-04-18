@@ -4,7 +4,7 @@
 from polmap import *
 from funset import *
 from dop import *
-from mapfunc import *
+#from mapfunc import *
 #from lintrack import *
 #from lie import *
 
