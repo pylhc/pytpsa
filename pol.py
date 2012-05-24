@@ -141,6 +141,21 @@ class pol(dict):
     a0=c.pop((0,)*len(c.vars),0.)
     return a0,c
 
+  def separateComplex(self):
+    """Return in a couple two new pol's one containing
+    the real part and the other one the complex part
+    """
+    r=pol()
+    i=pol()
+    r.vars=self.vars[:]
+    i.vars=self.vars[:]
+    for k,v in self.iteritems():
+      if isinstance(v, complex) and v.imag != 0:
+        i[k]=v.imag
+      else:
+        r[k]=v
+    return r,i
+
   def truncate(self,order=None,eps=None):
     """Truncate to the order indicate in pol.order and 
     damp the elements smaller than self.eps"""
