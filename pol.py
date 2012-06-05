@@ -83,7 +83,7 @@ class pol(dict):
     1j*x
     """
   out='pretty'
-  def __init__(self,val=None,order=10,eps=1E-18,loc={},m='eval'):
+  def __init__(self,val=None,order=6,eps=1E-18,loc={},m='eval'):
     self.vars=[]
     self.order=order
     self.eps=eps
