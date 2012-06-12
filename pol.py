@@ -145,8 +145,10 @@ class pol(dict):
     """Return in a couple two new pol's one containing
     the real part and the other one the complex part
     """
-    r=pol(self)
-    i=pol(self)
+    r=pol();
+    i=pol();
+    r.order=i.order=self.order
+    r.eps=i.eps=self.eps
     r.vars=self.vars[:]
     i.vars=self.vars[:]
     for k,v in self.iteritems():
