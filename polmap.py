@@ -252,11 +252,12 @@ def compose(a,b):
   tempvalues={} #bookkeeping values
   newm=polmap() #final map
   lm=0 #couter for temp values
-  newv=pol(0) # fix for empty a
   for i in a: #store input pol in temp
     tempvalues[i]=b[i]
   for n,i in a.items(): # for each name,pol in map
     new=pol(0) # initialize new pol
+    new.order=i.order
+    new.eps=i.eps
     for j,c in i.items(): # for each mon in pol
       m=[] # prod vector
       for k in range(len(j)): # expand powers
