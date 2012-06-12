@@ -96,9 +96,9 @@ class pol(dict):
       elif isinstance(val,str):
         if m=='eval':
           c=compile(val,'eval','eval')
-          l=dict( (i,pol(i,m='name')) for i in c.co_names if i not in globals())
+          l=dict( (i,pol(i,m='name',order=order,eps=eps)) for i in c.co_names if i not in globals())
           l.update(loc)
-          pol.__init__(self,eval(c,globals(),l))
+          pol.__init__(self,eval(c,globals(),l),order=order,eps=eps)
         elif m=='name':
           self.vars=[val]
           self[(1,)]=1.

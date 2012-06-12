@@ -15,9 +15,10 @@ class polmap(dict):
   """
 
   def __init__(self,*s,**vars):
+    o = vars.pop('order',6)
     dict.__init__(self,*s,**vars)
     for k,v in self.items():
-      self[k]=pol(v)
+      self[k]=pol(val=v,order=o)
 
   def copy(self):
     return polmap(self)
